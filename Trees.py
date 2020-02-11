@@ -11,6 +11,7 @@ class Node:
         self.right = None
         self.data = value
 
+
 def in_order(root):
     """
     Inorder traversal of Tree
@@ -22,6 +23,7 @@ def in_order(root):
     in_order(root.left)
     print(root.data, end=" ")
     in_order(root.right)
+
 
 def iterative_in_order(root):
     """
@@ -42,6 +44,7 @@ def iterative_in_order(root):
         else:
             break
 
+
 def pre_order(root):
     """
     PreOrder traversal of Tree
@@ -53,6 +56,7 @@ def pre_order(root):
     print(root.data, end=" ")
     pre_order(root.left)
     pre_order(root.right)
+
 
 def post_order(root):
     """
@@ -66,6 +70,7 @@ def post_order(root):
     post_order(root.right)
     print(root.data, end=" ")
 
+
 def level_order_using_queue(root):
     """
     Level order or BFS traversal of a Tree using queue.
@@ -75,8 +80,7 @@ def level_order_using_queue(root):
     """
     if not root:
         return
-    q = []
-    q.append(root)
+    q = [root]
     while q:
         node = q.pop(0)
         print(node.data, end=" ")
@@ -86,6 +90,7 @@ def level_order_using_queue(root):
             q.append(node.right)
     print()
 
+
 def level_order_using_recurssion(root):
     """
     Level order or BFS traversal of a Tree using recursion.
@@ -94,6 +99,7 @@ def level_order_using_recurssion(root):
     :param root:
     :return:
     """
+
     def print_level(root, level):
         if not root:
             return
@@ -104,12 +110,15 @@ def level_order_using_recurssion(root):
             print_level(root.right, level-1)
     for i in range(level(root)):
         print_level(root, i)
+
+
 def level(root):
     if not root:
         return 0
     left = level(root.left) + 1
     right = level(root.right) + 1
     return max(left, right)
+
 
 def insert(root, value):
     """
@@ -125,6 +134,7 @@ def insert(root, value):
     if value > root.data:
         root.right = insert(root.right, value)
     return root
+
 
 def delete(root, value):
     """
@@ -154,7 +164,8 @@ def delete(root, value):
     root.right = delete(root.right, temp.data)
     return root
 
-def countLeafNodes(root):
+
+def count_leaf_nodes(root):
     """
     Function to count the number of leaf nodes in a BTree
     :param root: Node
@@ -164,9 +175,10 @@ def countLeafNodes(root):
         return 0
     if not root.left and not root.right:
         return 1
-    return countLeafNodes(root.left) + countLeafNodes(root.right)
+    return count_leaf_nodes(root.left) + count_leaf_nodes(root.right)
 
-def countInternalNodes(root):
+
+def count_internal_nodes(root):
     """
     Function to count the number of internal nodes in a BTree
     :param root: Node
@@ -176,15 +188,17 @@ def countInternalNodes(root):
         return 0
     if not root.left and not root.right:
         return 0
-    return 1 + countInternalNodes(root.left) + countInternalNodes(root.right)
+    return 1 + count_internal_nodes(root.left) + count_internal_nodes(root.right)
 
-def leftView(root):
+
+def left_view(root):
     """
     Function to print the left view of a Binary Tree.
     It uses left_view_util function to recursively call and print the left view of the tree
     :param root: Node
     :return: None
     """
+
     def left_view_util(root, max_level, level):
         """
         Recursive function to print the left view of the binary tree
@@ -201,17 +215,19 @@ def leftView(root):
         left_view_util(root.left, max_level, level+1)
         left_view_util(root.right, max_level, level+1)
 
-    max_level = [0] #max_level in list to pass the parameter by reference in recursive calls
+    max_level = [0]  # max_level in list to pass the parameter by reference in recursive calls
     left_view_util(root, max_level, 1)
 
-def rightViewUtil(root):
+
+def right_view(root):
     """
     Function to print the right view of a Binary Tree.
     It uses left_view_util function to recursively call and print the right view of the tree.
     :param root: Node
     :return: None
     """
-    def rightView(root, max_level, level):
+
+    def right_view(root, max_level, level):
         """
         Recursive function to print the right view of the binary tree.
         :param root: Node
@@ -224,13 +240,14 @@ def rightViewUtil(root):
         if level > max_level[0]:
             max_level[0] = level
             print(root.data, end=" ")
-        rightView(root.right, max_level, level+1)
-        rightView(root.left, max_level, level+1)
+        right_view(root.right, max_level, level+1)
+        right_view(root.left, max_level, level+1)
 
     max_level = [0]
-    rightView(root, max_level, 1)
+    right_view(root, max_level, 1)
 
-def topView(root):
+
+def top_view(root):
     """
     Function to print Top View of the binary tree.
     It uses python dictionary to store the node's value at various horizontal levels.
@@ -247,7 +264,7 @@ def topView(root):
     while q:
         node = q.pop(0)
         hd = node.hd
-        if hd not in hd_map: # Comment this to get bottom view
+        if hd not in hd_map:  # Comment this to get bottom view
             hd_map[hd] = node.data
         if node.left:
             node.left.hd = hd-1
@@ -258,14 +275,17 @@ def topView(root):
     for hd in sorted(hd_map):
         print(hd_map[hd], end=" ")
 
-def boundaryLeaves(root):
+
+def boundary_leaves(root):
     """
     Function to print the boundary nodes of a Binary Tree.
     This approach will first print the root node and then left boundary nodes except the
-    lowest node (as it get's printed in bottom nodes) and then bottom nodes and then right nodes till the left node of root.
+    lowest node (as it get's printed in bottom nodes) and then bottom nodes and then right nodes till the left node of
+    the root.
     :param root: Node
     :return: None
     """
+
     def bottom_nodes(node):
         if not node:
             return
@@ -273,6 +293,7 @@ def boundaryLeaves(root):
         if not node.left and not node.right:
             print(node.data, end=" ")
         bottom_nodes(node.right)
+
     def left_nodes(node):
         if node:
             if node.left:
@@ -281,6 +302,7 @@ def boundaryLeaves(root):
             elif node.right:
                 print(node.right, end=" ")
                 left_nodes(node.right)
+
     def right_nodes(node):
         if node:
             if node.right:
@@ -294,6 +316,7 @@ def boundaryLeaves(root):
     bottom_nodes(root)
     right_nodes(root.right)
 
+
 def bottom_right_view(root):
     """
     Function to print the bottom right view of a binary tree.
@@ -301,6 +324,7 @@ def bottom_right_view(root):
     :param root: Node
     :return: None
     """
+
     def bottom_right_view_util(root, max_level, level):
         """
         Recursive function to traverse right sub-tree followed with left sub-tree
@@ -320,6 +344,7 @@ def bottom_right_view(root):
 
     max_level = [0]
     bottom_right_view_util(root, max_level, 1)
+
 
 def print_level(root, level, ltr):
     """
@@ -341,6 +366,7 @@ def print_level(root, level, ltr):
         print_level(root.right, level-1, ltr)
         print_level(root.left, level-1, ltr)
 
+
 def spiral(root, clockwise):
     """
     Function to print the spiral traversal of a binary tree.
@@ -352,11 +378,12 @@ def spiral(root, clockwise):
     up = 1
     bottom = level(root)
     ltr = clockwise
-    while up<bottom:
+    while up < bottom:
         print_level(root, up, ltr)
         up += 1
         print_level(root, bottom, not ltr)
         bottom -= 1
+
 
 def zigzag(root, clockwise):
     """
@@ -370,6 +397,7 @@ def zigzag(root, clockwise):
     for i in range(1, level(root)+1):
         print_level(root, i, ltr)
         ltr = not ltr
+
 
 def zigzak_using_bfs(root):
     """
@@ -393,6 +421,7 @@ def zigzak_using_bfs(root):
         if not current_level:
             current_level, next_level = next_level, current_level
 
+
 def nodes_at_k(root, target, k):
     """
     Function to print nodes at distance K from the target node.
@@ -404,6 +433,7 @@ def nodes_at_k(root, target, k):
     :param k: Int #distance value
     :return: None
     """
+
     def print_k_down(root, k):
         """
         function to print the nodes below the root node and distance k
@@ -439,6 +469,7 @@ def nodes_at_k(root, target, k):
         return 1+rd
     return -1
 
+
 def valid_bst(root, left=None, right=None):
     """
     Recursive function to check whether tree is a valid binary search tree or not.
@@ -452,6 +483,7 @@ def valid_bst(root, left=None, right=None):
     if left and left.data > root.data or right and right.data < root.data:
         return False
     return valid_bst(root.left, left, root) and valid_bst(root.right, root, right)
+
 
 def node_path(root, x, path):
     """
@@ -474,6 +506,7 @@ def node_path(root, x, path):
         return True
     return False
 
+
 def lcs(root, a, b):
     """
     Function to find the lowest common ancestor of two nodes.
@@ -489,12 +522,13 @@ def lcs(root, a, b):
     path2 = []
     node_path(root, a, path1)
     node_path(root, b, path2)
-    i = len(path1)-1 
-    j = len(path2) -1
+    i = len(path1) - 1
+    j = len(path2) - 1
     while path1[i] == path2[j]:
         i -= 1
         j -= 1
     return path1[i+1]
+
 
 def diff_sum_levels(root):
     """
@@ -521,7 +555,8 @@ def diff_sum_levels(root):
         if not current_level:
             current_level, next_level = next_level, current_level
             odd_level = not odd_level
-    return (odd_sum - even_sum)
+    return odd_sum - even_sum
+
 
 def diff_sum_levels_recur(root):
     """
@@ -532,6 +567,7 @@ def diff_sum_levels_recur(root):
     if not root:
         return 0
     return root.data - diff_sum_levels_recur(root.left) - diff_sum_levels_recur(root.right)
+
 
 def is_sum_tree(root):
     """
@@ -558,6 +594,7 @@ def is_sum_tree(root):
         return False
     return True
 
+
 def distance_between_nodes(root, a, b):
     """
     Function to calculate the distance between two target nodes.
@@ -578,9 +615,10 @@ def distance_between_nodes(root, a, b):
     while path1[i] == path2[j]:
         i -= 1
         j -= 1
-        if i<0 or j<0:
+        if i < 0 or j < 0:
             return None
-    return i+1 + j+1
+    return (i + 1) + (j + 1)
+
 
 def check_mirror_trees(root1, root2):
     """
@@ -597,6 +635,7 @@ def check_mirror_trees(root1, root2):
         return False
     return check_mirror_trees(root1.left, root2.right) and check_mirror_trees(root2.left, root1.right)
 
+
 def check_mirror(root):
     """
     Function to check if a tree is a symmetric tree(mirror of itself).
@@ -606,6 +645,7 @@ def check_mirror(root):
     :return: Bool
     """
     return check_mirror_trees(root.left, root.right)
+
 
 def create_mirror(root):
     """
@@ -621,6 +661,7 @@ def create_mirror(root):
     if not root.left and not root.right:
         return
     root.left, root.right = root.right, root.left
+
 
 def max_width(root):
     """
@@ -645,6 +686,7 @@ def max_width(root):
             current_level, next_level = next_level, current_level
     return max_width
 
+
 def has_path_sum(root, s):
     """
     Function to check if root to leaf path with path sum equal to provided sum exists
@@ -663,6 +705,7 @@ def has_path_sum(root, s):
     if root.right:
         ans = ans or has_path_sum(root.right, sub_sum)
     return ans
+
 
 def binary_tree_to_dll(root, ll):
     """
@@ -686,6 +729,7 @@ def binary_tree_to_dll(root, ll):
     ll.head = root
     binary_tree_to_dll(root.left, ll)
 
+
 def btree_to_dll(root):
     """
     Approach #2 to convert a binary tree to doubly linked list.
@@ -694,6 +738,7 @@ def btree_to_dll(root):
     :param root: Node
     :return: Node #linkedlist head
     """
+
     def btree_to_dll_util(root):
         """
         Recursive function to traverse every node and find the left and right node of it and make the left and right
@@ -723,6 +768,7 @@ def btree_to_dll(root):
         root = root.left
     return root
 
+
 def print_linkedlist(head):
     """
     Function to print every ndoe in linked list
@@ -735,12 +781,14 @@ def print_linkedlist(head):
         temp = temp.right
     print()
 
+
 class LinkedList:
     """
     Linked list class with head pointer
     """
     def __init__(self):
         self.head = None
+
 
 def tree_from_inorder_postorder(inorder, postorder):
     """
@@ -753,6 +801,7 @@ def tree_from_inorder_postorder(inorder, postorder):
     """
     if not postorder or not inorder:
         return
+
     def recur_function(inorder_start, inorder_end, p_index):
         """
         Recursive function to create a node and call for it's left and right nodes.
@@ -779,6 +828,7 @@ def tree_from_inorder_postorder(inorder, postorder):
     root = recur_function(0, len(inorder)-1, p_index)
     return root
 
+
 def tree_from_inorder_preorder(inorder, preorder):
     """
     Function to create a tree from it's in-order and pre-order traversals.
@@ -790,6 +840,7 @@ def tree_from_inorder_preorder(inorder, preorder):
     """
     if not preorder or not inorder:
         return
+
     def recur_function(in_start, in_end, p_index):
         """
         Recursive function to create a node and call for it's left and right nodes.
@@ -800,7 +851,7 @@ def tree_from_inorder_preorder(inorder, preorder):
         :param p_index: Int
         :return: Node
         """
-        if in_start>in_end:
+        if in_start > in_end:
             return
         data = preorder[p_index[0]]
         p_index[0] += 1
@@ -811,6 +862,7 @@ def tree_from_inorder_preorder(inorder, preorder):
         node.left = recur_function(in_start, in_index-1, p_index)
         node.right = recur_function(in_index+1, in_end, p_index)
         return node
+
     inorder_map = {data: index for index, data in enumerate(inorder)}
     p_index = [0]
     root = recur_function(0, len(inorder)-1, p_index)
