@@ -37,7 +37,7 @@ def kth_min_using_max_heap(array, k):
     :return: Int #Kth minimum value
     """
     maxheap = array[:k]
-    #Workaround of Max Heaps using heapq to multiply the number with -1 to negate the number
+    # Workaround of Max Heaps using heapq to multiply the number with -1 to negate the number
     maxheap = list(map(lambda x: x*-1, maxheap))
     heapify(maxheap)
     for i in range(k, len(array)):

@@ -35,7 +35,7 @@ class MaxHeap:
         self.heap.append(key)
         if len(self.heap) > 1:
             current = len(self.heap) - 1
-            while (current > 0 and self.heap[current] > self.heap[self.parent(current)]):
+            while current > 0 and self.heap[current] > self.heap[self.parent(current)]:
                 self.heap[current], self.heap[self.parent(current)] = self.heap[self.parent(current)], self.heap[current]
                 current = self.parent(current)
 
@@ -49,29 +49,28 @@ class MaxHeap:
         :return: None
         """
         self.heap[0] = self.heap.pop()
-        print(self.heap)
-        heapLength = len(self.heap)
-        maxIndex = 0
-        leftIndex = 2*maxIndex + 1
-        rightIndex = 2*maxIndex + 2
-        while (all(i<heapLength for i in [leftIndex, rightIndex, maxIndex]) and (self.heap[maxIndex] < self.heap[leftIndex] or self.heap[maxIndex] < self.heap[rightIndex])):
-            if (self.heap[maxIndex] < self.heap[leftIndex]):
-                self.heap[maxIndex], self.heap[leftIndex] = self.heap[leftIndex], self.heap[maxIndex]
-                maxIndex = 2*maxIndex + 1
-                print(self.heap)
+        heap_length = len(self.heap)
+        max_index = 0
+        left_index = 2*max_index + 1
+        right_index = 2*max_index + 2
+        while all(i < heap_length for i in [left_index, right_index, max_index]) \
+                and (self.heap[max_index] < self.heap[left_index] or self.heap[max_index] < self.heap[right_index]):
+            if self.heap[max_index] < self.heap[left_index]:
+                self.heap[max_index], self.heap[left_index] = self.heap[left_index], self.heap[max_index]
+                max_index = (2 * max_index) + 1
             else:
-                self.heap[maxIndex], self.heap[rightIndex] = self.heap[rightIndex], self.heap[maxIndex]
-                maxIndex = 2*maxIndex + 2
-                print(self.heap)
-            leftIndex = 2*maxIndex + 1
-            rightIndex = 2*maxIndex + 2
+                self.heap[max_index], self.heap[right_index] = self.heap[right_index], self.heap[max_index]
+                max_index = (2 * max_index) + 2
+            left_index = (2 * max_index) + 1
+            right_index = (2 * max_index) + 2
 
-    def printHeap(self):
+    def print_heap(self):
         """
         Functio to print the heap
         :return: None
         """
         print(self. heap)
+
 
 heap = MaxHeap()
 heap.insert(38)
@@ -81,6 +80,6 @@ heap.insert(23)
 heap.insert(57)
 heap.insert(10)
 heap.insert(36)
-heap.printHeap()
+heap.print_heap()
 heap.remove()
-heap.printHeap()
+heap.print_heap()

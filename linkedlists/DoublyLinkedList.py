@@ -113,7 +113,6 @@ class DoublyLinkedList:
             return second
         if not second:
             return first
-        result = None
         if first.data < second.data:
             result = first
             result.next = DoublyLinkedList.merge_sorted_lists(first.next, second)

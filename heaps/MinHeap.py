@@ -48,26 +48,28 @@ class MinHeap:
         :return: None
         """
         self.heap[0] = self.heap.pop()
-        heapLength = len(self.heap)
-        minIndex = 0
-        leftIndex = 2*minIndex + 1
-        rightIndex = 2*minIndex + 2
-        while (all(i > heapLength for i in [minIndex, leftIndex, rightIndex]) and (self.heap[minIndex] > self.heap[leftIndex] or self.heap[minIndex] > self.heap[rightIndex])):
-            if (self.heap[minIndex] > self.heap[leftIndex]):
-                self.heap[minIndex], self.heap[leftIndex] = self.heap[leftIndex], self.heap[minIndex]
-                minIndex = 2*minIndex + 1
+        heap_length = len(self.heap)
+        min_index = 0
+        left_index = (2 * min_index) + 1
+        right_index = (2 * min_index) + 2
+        while all(i > heap_length for i in [min_index, left_index, right_index]) \
+                and (self.heap[min_index] > self.heap[left_index] or self.heap[min_index] > self.heap[right_index]):
+            if self.heap[min_index] > self.heap[left_index]:
+                self.heap[min_index], self.heap[left_index] = self.heap[left_index], self.heap[min_index]
+                min_index = (2 * min_index) + 1
             else:
-                self.heap[minIndex], self.heap[rightIndex] = self.heap[rightIndex], self.heap[minIndex]
-                minIndex = 2*minIndex + 2
-            leftIndex = 2*minIndex + 1
-            rightIndex = 2* minIndex + 2
+                self.heap[min_index], self.heap[right_index] = self.heap[right_index], self.heap[min_index]
+                min_index = (2 * min_index) + 2
+            left_index = (2 * min_index) + 1
+            right_index = (2 * min_index) + 2
 
-    def printHeap(self):
+    def print_heap(self):
         """
         Function to print the heap
         :return: None
         """
         print(self.heap)
+
 
 heap = MinHeap()
 heap.insert(10)
@@ -77,6 +79,6 @@ heap.insert(32)
 heap.insert(38)
 heap.insert(45)
 heap.insert(57)
-heap.printHeap()
+heap.print_heap()
 heap.remove()
-heap.printHeap()
+heap.print_heap()

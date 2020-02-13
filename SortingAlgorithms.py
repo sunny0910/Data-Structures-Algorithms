@@ -33,6 +33,7 @@ def merge_sort(input_array):
             input_index += 1
     return input_array
 
+
 def quick_sort(input_array, start_index, end_index):
     """
     Quick sort is an in-place divide and conquer algorithm. It separates the elements of input array in two halves
@@ -73,6 +74,7 @@ def quick_sort(input_array, start_index, end_index):
         quick_sort(input_array, partition_index + 1, end_index)
     return input_array
 
+
 def heap_sort(input_array):
     """
     Heap sort is a comparison based sorting technique based on Binary Heap data structure. It is similar to
@@ -112,6 +114,7 @@ def heap_sort(input_array):
         input_array[i], input_array[0] = input_array[0], input_array[i]
         heapify(input_array, 0, i)
     return a
+
 
 a = [7, 6, 5, 4, 3, 2, 1, 8]
 b = [7, 6, 5, 4, 3, 2, 1, 8]
