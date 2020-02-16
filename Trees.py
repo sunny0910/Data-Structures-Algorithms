@@ -530,6 +530,47 @@ def lcs(root, a, b):
     return path1[i+1]
 
 
+def optimised_bst_lcs(root, n1, n2):
+    """
+    Optimised recursive solution for finding the lcs in BST. It traverses the tree only once compared to two traversals
+    and one iteration over path array in the above approach.
+    :param root: Node
+    :param n1: Int
+    :param n2: Int
+    :return: Node # LCS
+    """
+    if not root:
+        return
+    if n1 < root.data and n2 < root.data:
+        return optimised_bst_lcs(root.left, n1, n2)
+    if n1 > root.data and n2 > root.data:
+        return optimised_bst_lcs(root.right, n1, n2)
+    return root
+
+
+def optimised_btree_lcs(root, n1, n2):
+    """
+    Optimised recursive approach for finding the lcs in BTree. It traverses the left and right node of all nodes in the
+    tree to check if node matches with n1 and n2.
+    If a node matches with any of the nodes then that is returned and the lowest root node which will get both nodes
+    present in left and right sub-tree will be returned as LCS.
+    This approach assumes that both the nodes are present in the tree.
+    :param root: Node
+    :param n1: Int
+    :param n2: Int
+    :return: Node
+    """
+    if not root:
+        return
+    if root.data == n1 or root.data == n2:
+        return root
+    left_lcs = optimised_btree_lcs(root.left, n1, n2)
+    right_lcs = optimised_btree_lcs(root.right, n1, n2)
+    if left_lcs and right_lcs:
+        return root
+    return left_lcs or right_lcs
+
+
 def diff_sum_levels(root):
     """
     Function to calculate the difference between sum of nodes at even level and odd level.
@@ -877,6 +918,10 @@ root.left.right.left = Node(10)
 root.left.right.right = Node(14) 
 root.right = Node(22) 
 root.right.right = Node(25)
+x = optimised_bst_lcs(root, 10, 14)
+print(x.data)
+x = optimised_btree_lcs(root, 10, 50)
+print(x.data)
 
 level_order_using_queue(root)
 ll = LinkedList()
