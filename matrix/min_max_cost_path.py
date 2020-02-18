@@ -2,22 +2,41 @@ from sys import maxsize
 
 
 def is_valid(a, i, j):
+    """
+    Function to check valid index in a matrix
+    :param a: List # Matrix
+    :param i: Int
+    :param j: Int
+    :return: Bool
+    """
     if i < 0 or j < 0 or i > len(a)-1 or j > len(a[0])-1:
         return False
     return True
 
 
 def get_max_path(a):
+    """
+    Function to get max path in a matrix from top to bottom.
+    :param a: List # Matrix
+    :return: Int # Max Path Sum
+    """
     def recur(i, j, total):
+        """
+        Recursive function to calculate sum from every element in the top level and return the max path sum
+        :param i: Int
+        :param j: Int
+        :param total: Int
+        :return: Int # Min Sum
+        """
         if i == len(a)-1:
             return total
         sum1 = sum2 = sum3 = 0
         if is_valid(a, i+1, j-1):
-            sum1 = recur(i+1, j-1, total+a[i+1][j-1])
+            sum1 = recur(i+1, j-1, total + a[i+1][j-1])
         if is_valid(a, i+1, j):
-            sum2 = recur(i+1, j, total+a[i+1][j])
+            sum2 = recur(i+1, j, total + a[i+1][j])
         if is_valid(a, i+1, j+1):
-            sum3 = recur(i+1, j+1, total+a[i+1][j+1])
+            sum3 = recur(i+1, j+1, total + a[i+1][j+1])
         return max(sum1, sum2, sum3)
     max_sum = 0
     for i in range(len(a[0])):
@@ -26,7 +45,19 @@ def get_max_path(a):
 
 
 def get_min_path(a):
+    """
+    Function to get min path in a matrix from top to bottom.
+    :param a: List # Matrix
+    :return: Int # Min Path Sum
+    """
     def recur(i, j, total):
+        """
+        Recursive function to calculate path sum from every element in the top level and return the min path sum
+        :param i: Int
+        :param j: Int
+        :param total: Int
+        :return: Int # Min Sum
+        """
         if i == len(a)-1:
             return total
         sum1 = sum2 = sum3 = maxsize

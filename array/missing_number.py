@@ -1,4 +1,12 @@
 def missing_number(a, start, end):
+    """
+    Function to get the missing number in the array.
+    It uses array index and applies binary search to find the missing element
+    :param a: List
+    :param start: Int
+    :param end: Int
+    :return: List
+    """
     mid = (start+end) // 2
     if (a[mid] - mid) == 2 and (a[mid-1] - (mid-1)) == 1:
         return a[mid]-1

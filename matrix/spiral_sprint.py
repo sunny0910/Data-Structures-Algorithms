@@ -1,4 +1,12 @@
 def matrix_spiral_form(a):
+    """
+    Function to print a matrix in spiral form.
+    It maintains 4 pointer variables Top, Left, Bottom, and Right to keep the count of rows and columns from all
+    directions.
+    It keeps on printing the elements in clockwise fashion until left < right and top < bottom.
+    :param a: List # Matrix
+    :return: None
+    """
     top = 0
     bottom = len(a)
     left = 0

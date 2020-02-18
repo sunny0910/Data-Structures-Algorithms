@@ -1,4 +1,7 @@
 class Node:
+    """
+    Node of a doubly linked list with data, previous, and next pointer attributes
+    """
     def __init__(self, data):
         self.data = data
         self.prev = self.next = None
@@ -9,6 +12,11 @@ class DoublyLinkedList:
         self.head = None
 
     def insert_at_start(self, data):
+        """
+        Function to insert a node at the start of a DLL
+        :param data: Int
+        :return: None
+        """
         if not data:
             return
         node = Node(data)
@@ -20,6 +28,11 @@ class DoublyLinkedList:
         self.head = node
     
     def insert_at_end(self, data):
+        """
+        Function to insert a node at the end of a DLL
+        :param data: Int
+        :return: None
+        """
         if not data:
             return
         node = Node(data)
@@ -33,6 +46,13 @@ class DoublyLinkedList:
         node.prev = last
 
     def insert_middle(self, data, target, before=False):
+        """
+        Function to insert a node in the middle of a linked list.
+        :param data: Int
+        :param target: Int
+        :param before: Bool # before or after the target node
+        :return: None
+        """
         if not target or not data:
             return
         node = Node(data)
@@ -59,6 +79,11 @@ class DoublyLinkedList:
         return
 
     def delete(self, node):
+        """
+        Function to delete a node in the linked list
+        :param node: Node
+        :return: None
+        """
         target = self.head
         prev_to_target = None
         while target and target.data != node:
@@ -81,6 +106,10 @@ class DoublyLinkedList:
         return
 
     def print_list(self):
+        """
+        Function to print the elements in the linked list
+        :return: None
+        """
         temp = self.head
         last = None
         print("In forward")
@@ -96,6 +125,10 @@ class DoublyLinkedList:
         print()
 
     def reverse(self):
+        """
+        Function to reverse a linked list
+        :return: None
+        """
         curr = self.head
         prev = None
         while curr:
@@ -109,6 +142,12 @@ class DoublyLinkedList:
 
     @staticmethod
     def merge_sorted_lists(first, second):
+        """
+        Function to merge sorted linked list in-place
+        :param first: Node
+        :param second: Node
+        :return: Node # new head
+        """
         if not first:
             return second
         if not second:
@@ -124,6 +163,11 @@ class DoublyLinkedList:
 
     @staticmethod
     def get_middle(head):
+        """
+        Function to get the middle of the linked list
+        :param head: Node
+        :return: Node
+        """
         if not head:
             return
         slow = head
@@ -134,6 +178,11 @@ class DoublyLinkedList:
         return slow
 
     def merge_sort(self, head):
+        """
+        Recursive function to perform merge sort on a DLL
+        :param head: Node
+        :return: Node # new head
+        """
         if not head or not head.next:
             return head
         middle = self.get_middle(head)

@@ -1,4 +1,11 @@
 def subarray_with_sum_k(a, k):
+    """
+    Function to find sub array with sum k.
+    It uses sliding window problem
+    :param a: List
+    :param k: Int
+    :return: Int
+    """
     start = end = 0
     total = a[0]
     while start < len(a):

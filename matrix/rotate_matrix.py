@@ -1,4 +1,11 @@
 def rotate_matrix(a):
+    """
+    Function to rotate a matrix in-place.
+    For every square matrix, the formula for number of matrix is ceil(n/2) and the rotation of elements can be done
+    using this where we will use one temporary variable to swap 4 nodes at a time.
+    :param a: List # Matrix
+    :return: None
+    """
     n = len(a)
     x = n//2
     for i in range(x):

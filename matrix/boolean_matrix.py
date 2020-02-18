@@ -1,4 +1,12 @@
 def boolean_matrix(a):
+    """
+    Function to make all elements in same row and column if element is equal to 1
+    It uses the first row and first column to store which rows and columns have element 1 in one traversal.
+    And then in next traversal it makes all those rows and columns equal to 1.
+    It uses row and column variable to store whether first row and first columns already had 1 or not
+    :param a: List # Matrix
+    :return: List # Modified Matrix
+    """
     row_one = col_one = False
     for i in range(len(a[0])):
         if a[0][i] == 1:

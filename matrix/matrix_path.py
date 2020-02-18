@@ -1,4 +1,9 @@
 def path_exits(a):
+    """
+    Function to check if a matrix path exists from top to bottom
+    :param a: List # Matrix
+    :return: String
+    """
     if 1 not in a[0]:
         return 'safe'
     q = [[] for i in range(len(a))]
@@ -20,7 +25,19 @@ def path_exits(a):
 
 
 def path_exists_recur(a):
+    """
+    Recursive function to check if a matrix path exists from top to bottom
+    :param a: List
+    :return: String
+    """
     def recur(a, i, j):
+        """
+        Call the function recursively on left, right and bottom elements
+        :param a: List
+        :param i: Int
+        :param j: Int
+        :return: Bool # If path exists
+        """
         if i == len(a)-1 and a[i][j] == 1:
             return True
         if i < 0 or j < 0 or i > len(a)-1 or j > len(a[0])-1 or a[i][j] == 0:

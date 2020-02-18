@@ -1,4 +1,7 @@
 class Node:
+    """
+    LinkedLIst node with data and next pointer attributes
+    """
     def __init__(self, data):
         self.next = None
         self.data = data
@@ -9,11 +12,21 @@ class LinkedList:
         self.head = None
 
     def insert(self, data):
+        """
+        Inserts a new node in a linked list.
+        Insertion happens from beginning always
+        :param data: Int
+        :return: None
+        """
         node = Node(data)
         node.next = self.head
         self.head = node
 
-    def print_linkedlist(self):
+    def print_linked_list(self):
+        """
+        Function to print all the elements of linked list.
+        :return: None
+        """
         temp = self.head
         while temp:
             print(temp.data, end=" ")
@@ -21,6 +34,11 @@ class LinkedList:
         print()
 
     def delete(self, data):
+        """
+        Function to delete a element from the linked list.
+        :param data: Int
+        :return: None
+        """
         prev = None
         curr = self.head
         while curr:
@@ -41,6 +59,12 @@ class LinkedList:
         curr.next = None
 
     def get_middle(self):
+        """
+        Function to get the middle of the linked list.
+        It uses floyd's cyclic algorithm with slow and fast pointer which moves with one and two elements respectively,
+        and slow pointer ends up on the middle of the linked list
+        :return: None
+        """
         slow = self.head
         fast = self.head
         while fast.next and fast.next.next:
@@ -49,6 +73,12 @@ class LinkedList:
         print(slow.data)
 
     def iterative_reverse(self, head):
+        """
+        Iterative function to reverse the linked list.
+        It uses previous, current, and next pointers
+        :param head: Node # old head
+        :return: Node # New head
+        """
         prev = None
         current = head
         while current:
@@ -59,6 +89,12 @@ class LinkedList:
         return prev
 
     def recursive_reverse(self, head, prev):
+        """
+        Recursive function to reverse a linked list.
+        :param head:
+        :param prev:
+        :return:
+        """
         if not head:
             return prev
         else:
@@ -67,6 +103,12 @@ class LinkedList:
             return self.recursive_reverse(next, head)
 
     def k_nodes_reverse(self, head, k):
+        """
+        Iterative function to perform K node reverse on a linked list.
+        :param head: Node
+        :param k: Int
+        :return: Node
+        """
         curr = head
         prev = None
         count = 0
@@ -81,6 +123,11 @@ class LinkedList:
         return prev
 
     def check_palindrome_using_stack(self):
+        """
+        Function to check whether elements in linked list form a palindrome of not.
+        It traverses the linked list twice, once to push all elements in stack and other to verify elements in the stack
+        :return: Bool
+        """
         stack = []
         temp = self.head
         while temp:
@@ -96,6 +143,12 @@ class LinkedList:
 
     @staticmethod
     def compare_list(first, second):
+        """
+        Function to compare elements of the two list
+        :param first: Node
+        :param second: Node
+        :return: Bool
+        """
         temp1 = first
         temp2 = second
         while temp1 and temp2:
@@ -109,6 +162,12 @@ class LinkedList:
         return False
 
     def check_palindrome_using_reverse(self):
+        """
+        Function to check whether elements in the liked list form a palindrome or not.
+        This function gets to the middle of linked list and reverses the second half to check it it matches with the
+        first half. It reverses the second half again to form the second half
+        :return: Bool
+        """
         slow = self.head
         fast = self.head
         midnode = None
@@ -133,6 +192,10 @@ class LinkedList:
         return res
 
     def dutch_national_flag_problem(self):
+        """
+        Dutch national flag problem to separate 0's, 1's, and 2's in a linked list.
+        :return: None
+        """
         zero_start = zero_end = None
         one_start = one_end = None
         two_start = two_end = None
@@ -165,7 +228,11 @@ class LinkedList:
         two_end.next = None
         self.head = zero_start
 
-    def separate_end_odd_numbers(self):
+    def separate_even_odd_numbers(self):
+        """
+        Function to separate event and odd numbers in a linked list
+        :return: None
+        """
         even_start = even_end = None
         odd_start = odd_end = None
         temp = self.head
@@ -189,6 +256,12 @@ class LinkedList:
 
     @staticmethod
     def add_two_number(l1, l2):
+        """
+        Function to add two numbers represented by linked list by a single traversal.
+        :param l1: Node
+        :param l2: Node
+        :return: Node
+        """
         num1 = l1
         num2 = l2
         carry = 0
@@ -214,6 +287,10 @@ class LinkedList:
         return l3
 
     def detect_loop(self):
+        """
+        Function to detect loop in a linked list
+        :return: Bool
+        """
         # nodes_dict = {}
         # temp = self.head
         # while temp:
@@ -233,6 +310,12 @@ class LinkedList:
         return False
 
     def correct_loop(self):
+        """
+        Function to correct the loop in a linked list.
+        It first finds the loop node using floyd's cyclic algorithm and using the slow pointer node and first pointer,
+        finds the node where the loops ends and corrects the loop
+        :return: None
+        """
         def node_reachable(start, loop_node):
             while start:
                 if start.data == loop_node.data:
@@ -254,10 +337,21 @@ class LinkedList:
         loop_node.next = None
 
     def merge_sort(self, head):
+        """
+        Function to perform merge sort on linked list. It divides the linked list in two halves to form sorted halves
+        and merges the halves to form a sorted linked list
+        :param head: Node
+        :return: Node
+        """
         if not head:
             return
 
         def get_middle_prev_to_middle(head):
+            """
+            Function to find middle and previous to middle node of the linked list
+            :param head: Node
+            :return: Node
+            """
             slow = fast = head
             prev_to_middle = None
             if not head:
@@ -276,6 +370,12 @@ class LinkedList:
         return self.merge_sorted_ll_recursive(head, middle)
 
     def merge_sorted_ll_iterative(self, a, b):
+        """
+        Iterative function to merge two sorted linked list
+        :param a: Node
+        :param b: Node
+        :return: Node
+        """
         if not a:
             return b
         if not b:
@@ -308,6 +408,13 @@ class LinkedList:
         return new_head
 
     def merge_sorted_ll_recursive(self, a, b):
+        """
+        Recursive function to merge two sorted linked list.
+        Recursive approach looks small and clean as compared to iterative approach
+        :param a: Node
+        :param b: Node
+        :return: Node # new head
+        """
         if not a:
             return b
         if not b:
@@ -339,14 +446,14 @@ ll1.insert(6)
 # ll.insert(1)
 # ll.insert(0)
 # ll.insert(0)
-ll1.print_linkedlist()
+ll1.print_linked_list()
 # ll.delete(2)
-# ll.separate_end_odd_numbers()
+# ll.separate_even_odd_numbers()
 # ll.iteratetive_reverse()
 # ll.check_palindrome_using_reverse()
 # ll.head = ll.k_nodes_reverse(ll.head, 3)
 ll1.head = ll1.merge_sort(ll1.head)
-ll1.print_linkedlist()
+ll1.print_linked_list()
 # l3 = LinkedList()
 # l3.head = LinkedList.add_two_number(ll1.head, ll2.head)
-# l3.print_linkedlist()
+# l3.print_linked_list()
