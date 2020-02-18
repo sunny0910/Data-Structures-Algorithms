@@ -1,4 +1,12 @@
 def get_lowest_difference(a, m):
+    """
+    Chocolate distribution problem.
+    To get lowest difference between staring and end index of window.
+    Uses Window sliding problem to calculate difference between start and end of window
+    :param a: List
+    :param m: Int
+    :return: Int
+    """
     a.sort()
     start = m-1
     end = 0
