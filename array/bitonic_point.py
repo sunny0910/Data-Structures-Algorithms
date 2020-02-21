@@ -1,7 +1,9 @@
 def bitonic_point(a, start, end):
     """
     Function to find bitonic point in an array.
-    Bitonic array is the array with increases initially and then gradually decreases.
+    Bitonic array is the array with increases initially and then decreases after the pivot point.
+    The pivot point is the element which has elements in increasing sequence on the left and decreasing sequence
+    on the right
     :param a: List
     :param start: Int
     :param end: Int

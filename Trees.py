@@ -296,21 +296,19 @@ def boundary_leaves(root):
 
     def left_nodes(node):
         if node:
+            print(node.data, end=" ")
             if node.left:
-                print(node.data, end=" ")
                 left_nodes(node.left)
             elif node.right:
-                print(node.right, end=" ")
                 left_nodes(node.right)
 
     def right_nodes(node):
         if node:
             if node.right:
                 right_nodes(node.right)
-                print(node.data, end=" ")
             elif node.left:
                 right_nodes(node.left)
-                print(node.data, end=" ")
+            print(node.data, end=" ")
     print(root.data, end=" ")
     left_nodes(root.left)
     bottom_nodes(root)
