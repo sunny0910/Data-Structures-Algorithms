@@ -6,6 +6,7 @@ def largestNumberSmallerThanN(n):
     """
     n = [int(d) for d in str(n)]
     possible = False
+    i = 0
     for i in range(len(n)-1, 0, -1):
         if n[i-1] > n[i]:
             possible = True
@@ -20,8 +21,9 @@ def largestNumberSmallerThanN(n):
     n1 = n[:i]
     n2 = n[i:]
     n2.sort(reverse=True)
-    n = n1+n2
-    return int("".join(map(str,n)))
+    n = n1 + n2
+    return int("".join(map(str, n)))
+
 
 n = 262345
 print(n)
