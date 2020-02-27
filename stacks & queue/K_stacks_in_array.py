@@ -73,7 +73,7 @@ class KStacks:
         Retrieves the index of the element to be popped (pop_at)
         Changes the top of the stack to the next element in the stack using the index in the next  array.
         Set the next value of popped element as free in next array and changes the free value.
-        Returnd the popped value
+        Returned the popped value
         :param sn: Int
         :return: Int
         """
