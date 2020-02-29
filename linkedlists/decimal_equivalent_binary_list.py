@@ -1,7 +1,11 @@
 class Node:
+    """
+    Linked list node
+    """
     def __init__(self, data):
         self.data = data
         self.next = None
+
 
 class LinkedList:
     def __init__(self):
@@ -20,6 +24,11 @@ class LinkedList:
         print()
 
     def decimal_equivalent(self):
+        """
+        Function to get the decimal equivalent of a binary number represented by a linked list
+        It fetches the number from linked list to a array and applies the decimal to binary conversion on the list.
+        :return: Int
+        """
         if not self.head:
             return 0
         numbers = []
@@ -33,6 +42,7 @@ class LinkedList:
             if number == 1:
                 decimal += 2**(n-index)
         return decimal
+
 
 ll = LinkedList()
 ll.add(0)
