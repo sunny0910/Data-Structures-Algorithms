@@ -1,27 +1,6 @@
-class Node:
-    """
-    Linked list node
-    """
-    def __init__(self, data):
-        self.data = data
-        self.next = None
+from singly_linked_list import LinkedList
 
-
-class LinkedList:
-    def __init__(self):
-        self.head = None
-
-    def add(self, value):
-        node = Node(value)
-        node.next = self.head
-        self.head = node
-    
-    def print(self):
-        temp = self.head
-        while temp:
-            print(temp.data, end=" ")
-            temp = temp.next
-        print()
+class DecimalEquivalent(LinkedList):
 
     def decimal_equivalent(self):
         """
@@ -44,16 +23,19 @@ class LinkedList:
         return decimal
 
 
-ll = LinkedList()
-ll.add(0)
-ll.add(0)
-ll.add(1)
-# ll.add(0)
-# ll.add(1)
-# ll.add(1)
-# ll.add(0)
-# ll.add(0)
-# ll.add(0)
-ll.print()
-x = ll.decimal_equivalent()
-print(x)
+if __name__ == "__main__":
+    ll1 = DecimalEquivalent()
+    ll1.insert(0)
+    ll1.insert(0)
+    ll1.insert(1)
+    ll1.print_linked_list()
+    x = ll1.decimal_equivalent()
+    print("Decimal equivalent of above list is {}".format(x))
+    ll2 = DecimalEquivalent()
+    ll2.insert(0)
+    ll2.insert(1)
+    ll2.insert(1)
+    ll2.insert(1)
+    ll2.print_linked_list()
+    x = ll2.decimal_equivalent()
+    print("Decimal equivalent of above list is {}".format(x))
