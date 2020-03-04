@@ -112,54 +112,17 @@ class DoublyLinkedList:
         """
         temp = self.head
         last = None
-        print("In forward")
+        print("From Forward", end=" - ")
         while temp:
             print(temp.data, end=" ")
             last = temp
             temp = temp.next
         print()
-        print("In Backward")
+        print("From Backward", end=" - ")
         while last:
             print(last.data, end=" ")
             last = last.prev
         print()
-
-    def reverse(self):
-        """
-        Function to reverse a linked list
-        :return: None
-        """
-        curr = self.head
-        prev = None
-        while curr:
-            next = curr.next
-            curr.next = prev
-            curr.prev = next
-            prev = curr
-            curr = next
-        self.head = prev
-        return
-
-    @staticmethod
-    def merge_sorted_lists(first, second):
-        """
-        Function to merge sorted linked list in-place
-        :param first: Node
-        :param second: Node
-        :return: Node # new head
-        """
-        if not first:
-            return second
-        if not second:
-            return first
-        if first.data < second.data:
-            result = first
-            result.next = DoublyLinkedList.merge_sorted_lists(first.next, second)
-        else:
-            result = second
-            result.next = DoublyLinkedList.merge_sorted_lists(first, second.next)
-        result.next.prev = result
-        return result
 
     @staticmethod
     def get_middle(head):
@@ -177,49 +140,15 @@ class DoublyLinkedList:
             fast = fast.next.next
         return slow
 
-    def merge_sort(self, head):
-        """
-        Recursive function to perform merge sort on a DLL
-        :param head: Node
-        :return: Node # new head
-        """
-        if not head or not head.next:
-            return head
-        middle = self.get_middle(head)
-        middle.prev.next = None
-        middle.prev = None
-        head = self.merge_sort(head)
-        middle = self.merge_sort(middle)
-        return DoublyLinkedList.merge_sorted_lists(head, middle)
 
-
-dll1 = DoublyLinkedList()
-dll1.insert_at_start(1)
-dll1.insert_middle(3, 1, False)
-dll1.insert_at_end(5)
-dll1.insert_at_end(7)
-dll1.insert_at_end(9)
-dll1.delete(9)
-dll1.print_list()
-dll2 = DoublyLinkedList()
-dll2.insert_at_end(2)
-dll2.insert_at_end(4)
-dll2.insert_middle(6, 8, True)
-dll2.insert_at_end(8)
-dll2.insert_at_end(10)
-dll2.delete(4)
-# dll2.reverse()
-dll2.print_list()
-dll3 = DoublyLinkedList()
-dll3.head = DoublyLinkedList.merge_sorted_lists(dll1.head, dll2.head)
-dll3.print_list()
-dll4 = DoublyLinkedList()
-dll4.insert_at_end(7)
-dll4.insert_at_end(1)
-dll4.insert_at_end(5)
-dll4.insert_at_end(2)
-dll4.insert_at_end(10)
-dll4.insert_at_end(8)
-dll4.print_list()
-dll4.head = dll4.merge_sort(dll4.head)
-dll4.print_list()
+if __name__ == "__main__":
+    dll1 = DoublyLinkedList()
+    dll1.insert_at_start(1)
+    dll1.insert_middle(3, 1, False)
+    dll1.insert_at_end(5)
+    dll1.insert_at_end(7)
+    dll1.insert_at_end(9)
+    dll1.delete(9)
+    dll1.print_list()
+    x = dll1.get_middle(dll1.head)
+    print(x.data)
