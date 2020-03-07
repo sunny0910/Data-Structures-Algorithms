@@ -3,6 +3,7 @@ class TrieNode:
         self.childrens = [None]*26
         self.is_end_of_word = False
     
+
 class Trie:
     def __init__(self):
         self.root = self.get_node()
