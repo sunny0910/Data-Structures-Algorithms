@@ -41,6 +41,7 @@ def boundary_leaves(root):
     bottom_nodes(root)
     right_nodes(root.right)
 
+
 if __name__ == "__main__":
     bst = BinarySearchTree()
     tree_nodes = [20, 8, 4, 12, 10, 14, 22, 25]

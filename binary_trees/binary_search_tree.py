@@ -1,9 +1,9 @@
-from btree_node import Node
-from depth_first_search_traversals import in_order
-from breadth_first_search_traversal import level_order_using_queue
+from binary_trees.btree_node import Node
+from binary_trees.depth_first_search_traversals import *
+from binary_trees.breadth_first_search_traversal import *
 
 
-class BinarySearchTree():
+class BinarySearchTree:
     def __init__(self):
         self.root = None
 
@@ -63,12 +63,12 @@ if __name__ == "__main__":
             4  12     25
                / \
               10  14
-    
+
     in-order traversal - 4, 8, 10, 12, 14, 20, 22, 25
     """
     for node_data in tree_nodes:
         bst.root = bst.insert(bst.root, node_data)
 
-    in_order(bst.root)
+    DfsTraversals.in_order(bst.root)
     print()
-    level_order_using_queue(bst.root)
+    BfsTraversal.level_order_using_queue(bst.root)

@@ -86,4 +86,3 @@ if __name__ == "__main__":
 
     lcs = optimised_bst_lcs(bst.root, 4, 14)
     print(lcs)
-    

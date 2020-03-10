@@ -1,5 +1,5 @@
 from linkedlists.singly_linked_list.singly_linked_list import LinkedList
-from binary_search_tree import BinarySearchTree
+from binary_trees.binary_search_tree import BinarySearchTree
 
 
 def binary_tree_to_dll(root, ll):
@@ -90,7 +90,7 @@ if __name__ == "__main__":
             4  12     25
                / \
               10  14
-    
+
     in-order traversal - 4, 8, 10, 12, 14, 20, 22, 25
     """
     for node_data in tree_nodes:

@@ -15,7 +15,6 @@ def distance_between_nodes(root, a, b):
     path_to_node(root, a, path1)
     path2 = []
     path_to_node(root, b, path2)
-    print(path1, path2)
     if not path1 or not path2:
         return 0
     i = len(path1) - 1
@@ -26,6 +25,7 @@ def distance_between_nodes(root, a, b):
         if i < 0 or j < 0:
             break
     return (i + 1) + (j + 1)
+
 
 if __name__ == "__main__":
     bst = BinarySearchTree()

@@ -41,7 +41,7 @@ if __name__ == "__main__":
             4  12     25
                / \
               10  14
-    
+
     in-order traversal - 4, 8, 10, 12, 14, 20, 22, 25
     """
     for node_data in tree_nodes:

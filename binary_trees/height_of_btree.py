@@ -1,4 +1,4 @@
-from binary_search_tree import BinarySearchTree
+from binary_trees.binary_search_tree import *
 
 
 def height(root):
@@ -7,6 +7,7 @@ def height(root):
     left = height(root.left) + 1
     right = height(root.right) + 1
     return max(left, right)
+
 
 if __name__ == "__main__":
     bst = BinarySearchTree()

@@ -28,6 +28,7 @@ def left_view(root):
     max_level = [0]  # max_level in list to pass the parameter by reference in recursive calls
     left_view_util(root, max_level, 1)
 
+
 if __name__ == "__main__":
     bst = BinarySearchTree()
     tree_nodes = [20, 8, 4, 12, 10, 14, 22, 25]
