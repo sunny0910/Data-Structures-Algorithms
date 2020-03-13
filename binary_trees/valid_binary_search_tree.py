@@ -1,4 +1,4 @@
-from binary_trees.binary_search_tree import BinarySearchTree
+from binary_trees.binary_search_tree import BinarySearchTree, Node
 
 
 def valid_bst(root, left=None, right=None):
@@ -33,5 +33,8 @@ if __name__ == "__main__":
     """
     for node_data in tree_nodes:
         bst.root = bst.insert(bst.root, node_data)
+    x = valid_bst(bst.root)
+    print(x)
+    bst.root.right.right.left = Node(26)  # Wrong node
     x = valid_bst(bst.root)
     print(x)

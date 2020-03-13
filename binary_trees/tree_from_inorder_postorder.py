@@ -1,5 +1,6 @@
 from binary_trees.btree_node import Node
-from binary_trees.breadth_first_search_traversal import level_order_using_queue
+from binary_trees.breadth_first_search_traversal import BfsTraversal
+from binary_trees.depth_first_search_traversals import DfsTraversals
 
 
 def tree_from_inorder_postorder(inorder, postorder):
@@ -44,5 +45,18 @@ def tree_from_inorder_postorder(inorder, postorder):
 if __name__ == "__main__":
     inorder = [4, 8, 2, 5, 1, 6, 3, 7]
     postorder = [8, 4, 5, 2, 6, 7, 3, 1]
+    """
+        Tree representation of above numbers
+                     1
+                   /  \
+                  2    3
+                 / \  /  \
+                4   5 6   7
+                 \
+                  8
+        level-order(BFS) traversal - 1, 2, 3, 4, 5, 6, 7
+        in-order traversal - 4, 8, 2, 5, 1, 6, 3, 7
+    """
     root = tree_from_inorder_postorder(inorder, postorder)
-    level_order_using_queue(root)
+    BfsTraversal.level_order_using_queue(root)
+    DfsTraversals.in_order(root)

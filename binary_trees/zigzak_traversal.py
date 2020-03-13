@@ -15,6 +15,7 @@ def zigzak(root, clockwise):
     for i in range(1, height(root)+1):
         print_level(root, i, ltr)
         ltr = not ltr
+    print()
 
 
 def zigzak_using_bfs(root):
@@ -38,6 +39,7 @@ def zigzak_using_bfs(root):
             next_level.append(node.left)
         if not current_level:
             current_level, next_level = next_level, current_level
+    print()
 
 
 if __name__ == "__main__":
@@ -57,4 +59,7 @@ if __name__ == "__main__":
     """
     for node_data in tree_nodes:
         bst.root = bst.insert(bst.root, node_data)
+    print("Clockwise Zigzak traversal")
     zigzak(bst.root, True)
+    print("Anti-Clockwise Zigzak traversal")
+    zigzak(bst.root, False)

@@ -1,5 +1,6 @@
 from binary_trees.btree_node import Node
-from binary_trees.breadth_first_search_traversal import level_order_using_queue
+from binary_trees.breadth_first_search_traversal import BfsTraversal
+from binary_trees.depth_first_search_traversals import DfsTraversals
 
 
 def tree_from_inorder_preorder(inorder, preorder):
@@ -45,5 +46,17 @@ def tree_from_inorder_preorder(inorder, preorder):
 if __name__ == "__main__":
     inorder = ['D', 'B', 'E', 'A', 'F', 'C']
     preorder = ['A', 'B', 'D', 'E', 'C', 'F']
+    """
+    Tree representation of above data
+                 A
+               /  \
+              B     C
+             / \    /
+            D   E  F
+    
+    level-order traversal - A, B, C, D, E, F
+    in-order traversal - D, B, E, A, F, C
+    """
     root = tree_from_inorder_preorder(inorder, preorder)
-    level_order_using_queue(root)
+    BfsTraversal.level_order_using_queue(root)
+    DfsTraversals.in_order(root)

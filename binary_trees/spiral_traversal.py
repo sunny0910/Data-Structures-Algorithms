@@ -41,4 +41,3 @@ if __name__ == "__main__":
         bst.root = bst.insert(bst.root, node_data)
     spiral(bst.root, True)
     spiral(bst.root, False)
-    

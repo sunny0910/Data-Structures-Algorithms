@@ -39,5 +39,5 @@ if __name__ == "__main__":
     for node_data in tree_nodes:
         bst.root = bst.insert(bst.root, node_data)
     
-    print(has_path_sum(bst.root, 32)) # 20->8->4 = 32
-    print(has_path_sum(bst.root, 67))
+    print(has_path_sum(bst.root, 32))  # 20->8->4 = 32
+    print(has_path_sum(bst.root, 66))  # No path exists

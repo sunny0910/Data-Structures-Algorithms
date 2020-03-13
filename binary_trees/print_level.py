@@ -41,4 +41,3 @@ if __name__ == "__main__":
         bst.root = bst.insert(bst.root, node_data)
 
     print_level(bst.root, 3, True)
-    

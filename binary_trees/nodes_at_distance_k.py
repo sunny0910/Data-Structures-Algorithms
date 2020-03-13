@@ -6,7 +6,8 @@ def nodes_at_k(root, target, k):
     Function to print nodes at distance K from the target node.
     print_k_down is used to print the nodes at distance k from root.
     Function first searches the target node recursively and print the below nodes at distance k.
-    If the target node is found in sub-tree, print_k_down in used from parent node to print the root or nodes in left sub-tree.
+    If the target node is found in sub-tree, print_k_down in used from parent node to print the root or nodes in left
+    sub-tree.
     :param root: Node
     :param target: Int #target node data
     :param k: Int #distance value

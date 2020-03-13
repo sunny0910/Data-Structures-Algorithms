@@ -1,4 +1,5 @@
 from binary_trees.binary_search_tree import BinarySearchTree
+from binary_trees.btree_node import Node
 
 
 def is_sum_tree(root):
@@ -29,20 +30,24 @@ def is_sum_tree(root):
 
 if __name__ == "__main__":
     bst = BinarySearchTree()
-    tree_nodes = [20, 8, 4, 12, 10, 14, 22, 25]
+    bst.root = Node(26)
+    bst.root.left = Node(10)
+    bst.root.right = Node(3)
+    bst.root.left.left = Node(4)
+    bst.root.left.right = Node(6)
+    bst.root.right.right = Node(3)
     """
     Tree representation of above numbers
-                20
+                26
                /  \
-              8    22
+              10    3
              / \     \
-            4  12     25
-               / \
-              10  14
+            4   6     3
     
     in-order traversal - 4, 8, 10, 12, 14, 20, 22, 25
     """
-    for node_data in tree_nodes:
-        bst.root = bst.insert(bst.root, node_data)
     x = is_sum_tree(bst.root)
-    print(x)
+    print("Before adding extra node - ", x)
+    bst.root.right.left = Node(2)
+    x = is_sum_tree(bst.root)
+    print("After added extra node - ", x)
