@@ -44,6 +44,10 @@ The Topics and Algorithms covered in this repository are as follows, followed by
         * Merge sort on DLL ([link](https://www.geeksforgeeks.org/merge-sort-for-doubly-linked-list/))
     * Circular Linked List
         * Basic operations(Insert, delete, traverse) ([link](https://www.geeksforgeeks.org/circular-queue-set-2-circular-linked-list-implementation/))
+        * Middle of CLL
+        * Reverse CLL
+        * Merge-sort on CLL
+
 * Heaps
     * Min heap implementation ([link](https://www.geeksforgeeks.org/reverse-a-list-in-groups-of-given-size/))
     * Max heap implementation ([link](https://www.geeksforgeeks.org/reverse-a-list-in-groups-of-given-size/))
