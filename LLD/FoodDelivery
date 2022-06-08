@@ -1,0 +1,130 @@
+Entities:
+- User(Customer, Owner, Delivery Agent)
+- Address
+- Restaurant
+- Menu
+- FoodItem
+- Order
+- Delivery
+- Payment
+- Bill
+- Notifcation
+
+class Address:
+- address line 1
+- line 2
+- line 3
+- street
+- city
+- pincode
+- state
+
+class User:
+- id
+- name
+- email
+- phone
+- Address
+
+Actors:
+- Customer
+- RestaurantOwner
+- DeliveryAgent
+
+class Customer(User):
+- super(id, name, phone, email)
+
+class RestaurantOwner(User):
+- Restaurant
+
+class Restaurant:
+- int id
+- string name
+- string Menu
+- Address address
+
+Class Menu:
+- []FoodItems foodItems
+- setFoodItems()
+- getFoodItems()
+- getVegItems()
+- getNonVegItems()
+
+class FoodItem:
+- name
+- photoLink
+- Description
+- Ingrediants
+- isVeg
+- isVegan
+- Price
+
+# order from single restaurant or mulitple restaurants, delivery of takeaway order
+class Order:
+- id
+- User user
+- RestarantOrders []restaurantOrders
+- int orderTotal
+- Payment payment
+- Bill orderInvoice
+
+class DeliveryOrder(Order):
+- super()
+- DeliveryAgent agent
+- orderReadyAt
+- orderPickedUpAt
+- orderStatus (Placed, Ready, OutForDelivery, Completed, Canceled, Failed)
+
+class TakeAwayOrder(Order):
+- super()
+- orderStatus(Placed, Ready, Completed, Canceled, Failed)
+- orderReadyAt
+- pickedUpAt
+
+class RestarantOrders:
+- restaurant Restarant
+- FoodItems items
+- orderTotal int
+
+class Delivery:
+- DeliveryOrder order
+- DeliveryAgent agent
+- DeliveryStatus (Assigned, PickedUp, Delivered, Failed)
+- pickedUpAt
+- deliveryAt
+
+class Bill:
+- id
+- Order order
+- Payment payment
+- discount
+- GrossTotal
+- HotelGSTIN
+
+class Payment:
+- id
+- Order order
+- OrderTotal
+
+class CODPayment:
+- paid
+
+class CreditCardPayment:
+- provider
+- card
+
+class DebitCardPayment:
+- provider
+- card
+
+class Notification:
+- int id
+- text message
+- int userId
+
+class OrderNotification(Notifcation):
+- Order order
+
+class PromotionalNotification(Notifcation):
+- link
+- type

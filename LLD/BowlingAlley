@@ -1,0 +1,53 @@
+Entities:
+- Player
+- ScoreBoard
+- Pin
+- SingleAlley
+- BowlingAlleys
+- Game
+
+Player:
+- id
+- name
+- rank
+
+Pin:
+- id
+- isDown
+
+ScoreBoard:
+- []playerScores
+
+PlayerScore:
+- Player
+- [21]Score
+
+Strategy:
+- getBonus()
+
+SpareStrategy(Strategy):
+- bonus=5
+- getBonus()
+
+StrikeStrategy(Strategy):
+- bonus=10
+- getBonus()
+
+DefaultStrategy(Strategy):
+- bonus=1
+- getBonus()
+
+Game:
+- Players
+- SingleAlleys
+- refillPins()
+- isStrike()
+- isSpare()
+- winner()
+- updateScoreBoard()
+
+SingleAlley:
+- []Pins
+
+BowlingAlleys:
+- []Alleys

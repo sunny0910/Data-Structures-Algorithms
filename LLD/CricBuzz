@@ -1,0 +1,101 @@
+# CricBuzz
+Actors: Admin,Commentator, Viewer
+MatchFormat:
+- ODI,TEST,T20
+
+MatchResult:
+- LIVE,DRAWN,Finished,Cancelled
+
+WicketType:
+- Bowled,Runout,Caught,stumped,LBW,retiredhurt,hitwicket,obstructing
+
+RunType:
+- Normal,LegByes,Byes,Wide,Four,Six,OverThrow,NoBall
+
+BallType:
+- Normal,Wide,Wicket,NoBall
+
+
+Person:
+- name
+- country
+- phone
+- dob
++ get_name
++ get_dob
++ get_country
+
+Player(Person):
+- 
+
+Umpire(Person):
+- type(TV,Field,Reserved)
+
+Coach(Person):
+
+Match:
+- startTime
+- result
+- stadium
+
+Test(Match):
+-
+ODI(Match):
+-
+T20(Match):
+-
+
+Tournament:
+- matches
+- []Teams
+
+Team:
+- name
+- coach
+- squad
++ AddTournamentSquad
++ AddPlayer
++ AddNews
+
+TournamentSquad:
+- Tournament
+- Players
+
+Player11Squad:
+- players
+- 12thMan
+
+Match:
+- []Teams
+- StartTime
+- Result
+
+Innings:
+- number
+- startTime
+- []Overs
+
+Over:
+- number
+- []Balls
+- Bowler
+
+Ball:
+- bowledBy
+- playedBy
+- type
+- []runs
+- Wicket
+
+Run:
+- totalRuns
+- runType
+
+Wicket:
+- wicketType
+- playerOut Player
+- caughtBy Player
+- ranOutBy Player
+- stumpBy Player
+
+

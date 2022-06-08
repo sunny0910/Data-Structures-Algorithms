@@ -31,7 +31,7 @@ def zigzak_using_bfs(root):
     current_level = [root]
     next_level = []
     while current_level:
-        node = current_level.pop(-1)
+        node = current_level.pop()
         print(node.data, end=" ")
         if node.right:
             next_level.append(node.right)

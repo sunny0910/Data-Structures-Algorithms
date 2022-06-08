@@ -1,0 +1,67 @@
+Entities:
+- Pieces
+- Board(8x8)
+- Box
+- Player
+- Game
+
+class Board:
+- [][]boxes
+- n
+- initializeBoard() - create pieces and boxes
+
+class Box:
+- x
+- y
+- Piece
+- getX()
+- getY()
+- getPiece()
+- setter
+
+class Piece:
+- self._killed
+- self._isWhite
+- getters
+- setters
+- CanMove(Board board, Box start, Box end)
+
+class King:
+- move one step horizontally and vertically and diagonal - forward and backward
+- super(Piece)
+- canMove(board, start, end):
+  x = abs(start.getX() - end.getX())
+  y = abs(start,getY() - end.getY())
+  if x + y == 1 and board[x2][y2] is not occupied by same team:
+    if occupied by other team:
+      - mark piece killed
+   return True
+  if x + y == 2 and board[x2][y2] is not occupied by same team:
+    if occupied by other team:
+      - mark piece killed
+    return True
+  
+class Bishop:
+- move diagonally
+- super(Piece)
+- canMove(board, start, end)
+  x = abs(start.getX() - end.getX())
+  y = abs(start.getY() - end.getY())
+  if x == y and no piece in path and end not occupied by same team:
+    return True
+
+class Queen:
+- move horizontally
+- move vertically
+- move diagonally
+
+class Rook:
+- move horizontally
+- move vertically
+
+class pawn:
+- move one step forward
+- move one step diagonally forward if opponent present in that cell
+
+class Player:
+- 

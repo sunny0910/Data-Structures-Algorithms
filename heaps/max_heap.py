@@ -1,3 +1,4 @@
+# -*- coding: UTF-8 -*-
 class MaxHeap:
     """
     A Binary Heap is a Binary Tree with following properties.

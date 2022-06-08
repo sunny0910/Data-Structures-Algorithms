@@ -1,0 +1,64 @@
+CabBooking
+
+Entities:
+- PersonalInfo
+- Address
+- User (Driver, Customer)
+- Cab (Basic, Medium, Lux)
+- Trip
+- Booking
+- Ride
+- Payment (CC, DC, e-Wallet, cash)
+- Invoice
+
+Location:
+- lat
+- long
+- pincode
+
+User:
+- PersonalInfo
+- []Address
+- Location
+- rating
+- status(Active, Inactive, Blocked)
+
+Driver(User):
+- Cab
+- License
+- Vaccination
+
+Customer(User):
+- []rides
+
+Cab:
+- id
+- licensePlateNumber
+- cabCategory
+- make
+- model
+- color
+- Driver
+- pricePerKm
+- numberOfSeats
+- []facilities
+- status(Available, NotAvailable, RideInProgress)
+
+Trip:
+- pickupLocation
+- dropLocation
+- pickupTime
+- dropTime
+- actualCost
+- User
+- Driver
+- Payment
+- status(Pending, InProgress, Cancelled, Completed)
+
+Ride:
+- Cab
+- Driver
+- CurrentLocation
+- ETA
+- EstimatedCost
+- status(Pending, Accepted)

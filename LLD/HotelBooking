@@ -1,0 +1,101 @@
+Entities:
+- User (Admin, Customer, HotelFrontDesk, Guests)
+- Address
+- Room (Single, Double, etc)
+- Facility
+- Hotel
+- Booking/Reservation
+- Invoice
+- Payment (CC, DC, Wallet, Cash)
+- Cancellations (CancellationRules, CancellationPolicy)
+
+User:
+- id
+- name
+- email
+- Location
+
+Create sub classes for different user types following strategy pattern and open closed principal of SOLID
+
+Facility:
+- id
+- name
+- isFree
+- price
+
+Hotel:
+- id
+- name
+- Address
+- Owner
+- []RoomTypes
+- []facilities
+
+Room:
+- id
+- display_number
+- beds
+- capacity
+- []facilities
+- min_price
+- max_price
+- price
+
+SmallRoom(Room):
+- beds: 1
+- capacity:2
+
+MediumRoom(Room):
+- beds: 2
+- capacity: 4
+
+LargeRoom(Room):
+- beds: 5
+- capacity:10
+
+RoomTypes:
+- room_type_id
+- room_type_enum(supported enums)
+- count
+- []Rooms
+
+Reservation:
+- id
+- Hotel
+#cant keep rooms, as only room type comes into booking and the exact room is alocated during checkin
+- []RoomTypes
+- User
+- []Guests
+- check_in
+- check_out
+- totalAmount
+- balanceAmount
+- []Payment(info - partial paid, fully paid, cash)
+- status (Booked, Cancelled, Failed)
+
+class Transactin:
+- id
+- amount
+
+class Payment:
+- id
+- mode
+- Transaction
+
+CancellationRules:
+- id
+- hoursBeforeCheckIn
+- refundPercentage
+e.g. >48h - 100%, >24h & < 48h - 75%, >12h & <24h - 50%, <12h - 25%, <6h - 0%
+
+CancellationPolicy:
+- id
+- hotel_id
+- room_type
+- CancellationRules
+
+# fullfilment is tricky in some scenarios. Like in BMS we can assign the seat number during payment as inventory will not groww but in IRCTC or Ecommerce systems,
+we can increase the inventory between payment date and booking date.
+# IRCTC increase the boggies if many people in RAC and Ecommerce systems refund after payment if orders places were greater than inventory.
+# Hotel booking follows Ecommerce model where booking might get cancelled after payment if someone already paid for it. And roomId is not assigned at payment but rather 
+will be assigned during checkin based

@@ -1,0 +1,78 @@
+# BookMyShow
+
+Actors:
+- Admin
+- TheatreOwner
+- FrontDeskOfficer
+- CustomerViewer
+
+Objects:
+- Person
+- User,Cast,Directors,Producers(Person)
+- Movie
+- Theatre
+- Screen
+- Show
+- Seat
+- Booking(booking will have ticket + payment details)
+- Ticket
+
+User:
+- id
+- name
+- phone
+- email
+
+Movie:
+- name
+- Directors
+- Producers
+- Cast
+- ReleaseDate
+- Genre
+
+Theatre:
+- name
+- Address
+- CurrentMovies
+- Screens
+
+Screen:
+- screenType(3d,4d,2d)
+- name(gold, premium)
+- layout
+- []seats
+- []shows
+
+Show:
+- startTime
+- endTime
+- type
+- SeatTypeToPrice (price either in show-based on seat type or in seat)
+
+Seat:
+- number
+- type
+- available
+
+Booking:
+- user
+- Movie
+- ticket
+- transaction
+- invoice
+- time
+
+Ticket:
+- user
+- theatre
+- show
+- seat
+- time
+
+transaction:
+- id
+- amount
+- mode
+- time
+

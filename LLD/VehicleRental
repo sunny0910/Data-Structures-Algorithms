@@ -1,0 +1,67 @@
+Entities:
+- PersonalInfo
+- Vehicle (Car etc)
+- User (Customer, Agent, Admin)
+- CarCenter
+- Address
+- Booking/Reservation
+- Payment
+- Transaction
+- LicenseInfo
+
+Store:
+- id
+- StoreAdmin
+- Agents[]
+- Cars[]
+- Address
+
+# car can be further extended to hatchback, sedan, SUV etc
+Vehicle(Car, Scotty):
+- id
+- name
+- brand
+- deposit
+- price
+- dateOfManufacturing
+
+PersonalInfo:
+- name
+- email
+- phone
+- dob
+- Address
+
+User(PersonalInfo) (Customer, Agent, StoreAdmin):
+- id
+- PersonalInfo
+- Location
+- status (Active, closed, blacklist, blocked)
+
+Address:
+- address line 1
+- city, state, country
+- pin
+
+Transaction:
+- id
+- amount
+- Recipient
+
+Payment(CC, DC, Wallet, Cash):
+- id
+- Transaction
+
+Booking:
+- id
+- Vehicle
+- User
+- startLocation
+- endLocation
+- startTime
+- endTime
+- HandoverAgent
+- ReceivingAgent
+- Payment
+- Invoice
+- status (Booked, Failed, Cancelled)
