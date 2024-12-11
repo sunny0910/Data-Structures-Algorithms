@@ -6,6 +6,30 @@ The Topics and Algorithms covered in this repository are as follows, followed by
     * Merge Sort ([link](https://www.geeksforgeeks.org/merge-sort/))
     * Heap Sort ([link](https://www.geeksforgeeks.org/heap-sort/))
     * Quick Sort ([link](https://www.geeksforgeeks.org/quick-sort/))
+* Arrays
+    * Chocolate distribution problem ([link](https://www.geeksforgeeks.org/chocolate-distribution-problem/))
+    * Sliding window problem ([link](https://www.geeksforgeeks.org/find-subarray-with-given-sum-in-array-of-integers/))
+    * Rain water trapping problem ([link](https://www.geeksforgeeks.org/trapping-rain-water/))
+    * Binary Search
+    * Search in sorted & rotated array ([link](https://www.geeksforgeeks.org/find-minimum-element-in-a-sorted-and-rotated-array/))
+    * Bus/Train railway platform problem ([link](https://www.geeksforgeeks.org/minimum-number-platforms-required-railwaybus-station-set-2-map-based-approach/))
+    * Stocks Buy & Sell problem ([link](https://www.geeksforgeeks.org/stock-buy-sell/))
+    * Non repeating character in stream ([link](https://www.geeksforgeeks.org/find-first-non-repeating-character-stream-characters/))
+* Stacks & queues
+    * Rotten tomatoes problem ([link](https://www.geeksforgeeks.org/minimum-time-required-so-that-all-oranges-become-rotten/))
+    * Check for balanced parenthesis ([link](https://www.geeksforgeeks.org/check-for-balanced-parentheses-in-an-expression/))
+    * Next greater element in the array ([link](https://www.geeksforgeeks.org/next-greater-element/))
+    * Next smaller element in the array ([link](https://www.geeksforgeeks.org/next-smaller-element/))
+    * Implementing K queues in one array ([link](https://www.geeksforgeeks.org/efficiently-implement-k-queues-single-array/))
+    * Implementing K stacks in one array ([link](https://www.geeksforgeeks.org/efficiently-implement-k-stacks-single-array/))
+    * Minimum bracket reversal to balance expression ([link](https://www.geeksforgeeks.org/minimum-number-of-bracket-reversals-needed-to-make-an-expression-balanced/))
+    * Implement two stacks in one array ([link](https://www.geeksforgeeks.org/implement-two-stacks-in-an-array/))
+* Matrix
+    * Boolean Matrix ([link](https://www.geeksforgeeks.org/a-boolean-matrix-question/))
+    * Min/Max cost path in Matrix ([link](https://www.geeksforgeeks.org/min-cost-path-dp-6/))
+    * Matrix path exists ([link](https://www.geeksforgeeks.org/check-possible-path-2d-matrix/))
+    * Rotate matrix by 90 degrees ([link](https://www.geeksforgeeks.org/inplace-rotate-square-matrix-by-90-degrees/))
+    * Spiral traversal of Matrix ([link](https://www.geeksforgeeks.org/print-a-given-matrix-in-spiral-form/))
 * Trees
     * Basic operations (Insert, delete) ([link](https://www.geeksforgeeks.org/binary-search-tree-data-structure/))
     * BFS (in-order, pre-order, post-order) ([link](https://www.geeksforgeeks.org/tree-traversals-inorder-preorder-and-postorder/))
@@ -47,7 +71,6 @@ The Topics and Algorithms covered in this repository are as follows, followed by
         * Middle of CLL
         * Reverse CLL
         * Merge-sort on CLL
-
 * Heaps
     * Min heap implementation ([link](https://www.geeksforgeeks.org/reverse-a-list-in-groups-of-given-size/))
     * Max heap implementation ([link](https://www.geeksforgeeks.org/reverse-a-list-in-groups-of-given-size/))
@@ -56,29 +79,6 @@ The Topics and Algorithms covered in this repository are as follows, followed by
     * Merge K sorted arrays ([link](https://www.geeksforgeeks.org/merge-k-sorted-arrays-set-2-different-sized-arrays/))
     * Kth largest/smallest element in stream ([link](https://www.geeksforgeeks.org/kth-largest-element-in-a-stream/))
     * Median in stream using two heaps ([link](https://www.geeksforgeeks.org/median-of-stream-of-integers-running-integers/))
-* Stacks & queues
-    * Rotten tomatoes problem ([link](https://www.geeksforgeeks.org/minimum-time-required-so-that-all-oranges-become-rotten/))
-    * Check for balanced parenthesis ([link](https://www.geeksforgeeks.org/check-for-balanced-parentheses-in-an-expression/))
-    * Next greater element in the array ([link](https://www.geeksforgeeks.org/next-greater-element/))
-    * Next smaller element in the array ([link](https://www.geeksforgeeks.org/next-smaller-element/))
-    * Implementing K queues in one array ([link](https://www.geeksforgeeks.org/efficiently-implement-k-queues-single-array/))
-    * Implementing K stacks in one array ([link](https://www.geeksforgeeks.org/efficiently-implement-k-stacks-single-array/))
-    * Minimum bracket reversal to balance expression ([link](https://www.geeksforgeeks.org/minimum-number-of-bracket-reversals-needed-to-make-an-expression-balanced/))
-    * Implement two stacks in one array ([link](https://www.geeksforgeeks.org/implement-two-stacks-in-an-array/))
-* Matrix
-    * Boolean Matrix ([link](https://www.geeksforgeeks.org/a-boolean-matrix-question/))
-    * Min/Max cost path in Matrix ([link](https://www.geeksforgeeks.org/min-cost-path-dp-6/))
-    * Matrix path exists ([link](https://www.geeksforgeeks.org/check-possible-path-2d-matrix/))
-    * Rotate matrix by 90 degrees ([link](https://www.geeksforgeeks.org/inplace-rotate-square-matrix-by-90-degrees/))
-    * Spiral traversal of Matrix ([link](https://www.geeksforgeeks.org/print-a-given-matrix-in-spiral-form/))
-* Arrays
-    * Chocolate distribution problem ([link](https://www.geeksforgeeks.org/chocolate-distribution-problem/))
-    * Sliding window problem ([link](https://www.geeksforgeeks.org/find-subarray-with-given-sum-in-array-of-integers/))
-    * Rain water trapping problem ([link](https://www.geeksforgeeks.org/trapping-rain-water/))
-    * Search in sorted & rotated array ([link](https://www.geeksforgeeks.org/find-minimum-element-in-a-sorted-and-rotated-array/))
-    * Bus/Train railway platform problem ([link](https://www.geeksforgeeks.org/minimum-number-platforms-required-railwaybus-station-set-2-map-based-approach/))
-    * Stocks Buy & Sell problem ([link](https://www.geeksforgeeks.org/stock-buy-sell/))
-    * Non repeating character in stream ([link](https://www.geeksforgeeks.org/find-first-non-repeating-character-stream-characters/))
 * Strings
     * Largest number smaller than N with same digits ([link](https://www.geeksforgeeks.org/find-largest-number-smaller-than-n-with-same-set-of-digits/))
     * Longest common substring in two strings ([link](https://www.geeksforgeeks.org/longest-common-substring-dp-29/))
