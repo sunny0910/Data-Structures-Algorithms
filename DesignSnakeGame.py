@@ -11,25 +11,30 @@ class SnakeGame:
         self.snakePathSet = set()
         self.score = 0
         self.setInitialPosition()
-    
+
     def setInitialPosition(self):
-        position = [0,0]
+        position = [0, 0]
         self.snakePath.append(position)
         self.snakePathSet.add(tuple(position))
-    
+
     def move(self, direction):
         currentPosition = self.snakePath[-1]
         newPosition = None
-        if direction == 'u':
-            newPosition = [currentPosition[0]-1, currentPosition[1]]
-        elif direction == 'd':
-            newPosition = [currentPosition[0]+1, currentPosition[1]]
-        elif direction == 'r':
-            newPosition = [currentPosition[0], currentPosition[1]+1]
-        elif direction == 'l':
-            newPosition = [currentPosition[0], currentPosition[1]-1]
+        if direction == "u":
+            newPosition = [currentPosition[0] - 1, currentPosition[1]]
+        elif direction == "d":
+            newPosition = [currentPosition[0] + 1, currentPosition[1]]
+        elif direction == "r":
+            newPosition = [currentPosition[0], currentPosition[1] + 1]
+        elif direction == "l":
+            newPosition = [currentPosition[0], currentPosition[1] - 1]
 
-        if newPosition[0] < 0 or newPosition[1] < 0 or newPosition[0] >= self.rows or newPosition[1] >= self.cols:
+        if (
+            newPosition[0] < 0
+            or newPosition[1] < 0
+            or newPosition[0] >= self.rows
+            or newPosition[1] >= self.cols
+        ):
             return -1
 
         if self.foods and newPosition == self.foods[0]:
@@ -43,8 +48,9 @@ class SnakeGame:
 
         self.snakePath.append(newPosition)
         self.snakePathSet.add(tuple(newPosition))
-        
+
         return self.score
+
 
 rows = 2
 cols = 3

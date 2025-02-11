@@ -1,5 +1,6 @@
 import time
 
+
 class RateLimiter:
     def __init__(self, maxBucketSize, tokenRefillRate, refillRateInSeconds):
         self.maxBucketSize = maxBucketSize
@@ -7,25 +8,31 @@ class RateLimiter:
         self.refillRate = tokenRefillRate
         self.refillRateInSeconds = refillRateInSeconds
         self.lastRefreshedAt = time.time_ns()
-    
+
     def requestHandler(self, requestId):
         self.checkRefill()
-        print("RequestId: {}, currentBucketSize: {}".format(requestId, self.currentBucketSize))
+        print(
+            "RequestId: {}, currentBucketSize: {}".format(
+                requestId, self.currentBucketSize
+            )
+        )
         if self.currentBucketSize > 0:
             self.currentBucketSize -= 1
-            print(f'Request {requestId} Processed')
+            print(f"Request {requestId} Processed")
             return True
-        
-        print(f'Request {requestId} blocked')
+
+        print(f"Request {requestId} blocked")
         return False
-        
 
     def checkRefill(self):
         now = time.time_ns()
         timePassed = int((now - self.lastRefreshedAt) // 1e9)
         if timePassed == self.refillRateInSeconds:
-            self.currentBucketSize = min(self.currentBucketSize + self.refillRate, self.maxBucketSize)
+            self.currentBucketSize = min(
+                self.currentBucketSize + self.refillRate, self.maxBucketSize
+            )
             self.lastRefreshedAt = now
+
 
 # 5 request to be allowed per second
 rateLimiter = RateLimiter(5, 5, 1)
