@@ -1,0 +1,71 @@
+Round 1
+1.) We are working on a clone of Facebook. We want to add a numeric count to every post showing how many friends the post's author has at the time of viewing the post, like
+USER
+ 'user_id' (primary key)
+ name' 
+'created_date' 
+ 
+USER RELATIONSHIP 
+ 'friendship_id' (primary key, unique to each relationship) ) 
+ 'user_id' (indexed)
+ 'user2_id' (indexed)
+ 'Start_date'
+ 
+Focusing on the database, how would you implement the friend-count feature? Note we will soon be more popular than Facebook, so the solution needs to scale.
+ 
+2.) We are working on a clone of Google Docs.
+The software has the following features and limitations: Multiple users may work on a single document at the same time.
+ * A document must be handled by a single server, no matter how many users are * We have a fixed number of servers which will be sufficient to handle our exp properly.
+Our load balancer uses a round-robin system to permanently assign documents to each server will have an equal number of documents. 
+Do you have any concerns about this load balanging system?
+In those cases scalability, how to fix this issue
+ 
+3.) Which consistency model is more appropriate for each of these applications: strong or eventual consistency? Why? 
+ An API call that needs to respond within 20 milliseconds, used to retrieve meta video stream. The metadata includes things like the author name, rating, and view 
+A web analytics platform recording every single click on a popular web page. 
+A banking system that makes deposits and payments to checking accounts.
+ 
+4.) Another scenario was something like that there was a bug on an application, and you ended up having a lot of failed requests. You have a database that stores all IDs that are there, and you also have large log files from about 500 different production servers that log the IDs of the successful requests. How would you come up with a solution to find the IDs that were missing/
+ 
+Coding question:-
+ 
+The board consists of consecutive squares from to last_square, some of the spaces also contain Teleporters delimited strings "from, to". 
+The game is played as follows: Each turn, the player rolls a die numbered from 1 to die_sides. The player moves forward the rolled number of squares. The player stops at last_square if they reach it. If the player finishes on a square with a teleporter, they are moved to where the teleporter points. Note: Only one teleporter is followed per turn. A sample board with last_square 28 the following teleporters might look like this conceptually.  teleporters1 ["3,1", "4,2", "5,10"] 16 17 18 19 0 20 21 22 23 
+Write a function that returns a collection of the possible squares a player can move to in a single turn, given a collection of teleporter strings 
+The number of sides on the die 
+The square the player starts on
+ The last square on the board 
+ 
+ 
+Follow up ➖
+Implement BFS and check if we can end
+ 
+ 
+ 
+ 
+Round 2 ➖
+ 
+We are working on a service that generates subtitles for users' videos. This process starts a new thread for every video and is processor-intensive. Currently, this service runs as a single process on a machine. 
+We've run into a bug where if the service is processing more than 10 videos at the same time, the service crashes the server, losing all requests currently being processed and affecting other processes on the machine. It may take a long time to find and fix this bug. What workarounds could we implement to continue running the service while we do ?
+ 
+2.) You're working on infrastructure for internet-connected vending machines. The plan is to install around 188,888 of these vending machines in the coming year, in major cities around the world. These machines will connect to the internet through cellular network.
+Each machine will connect to a central server at midnight to report remaining stock and any maintenance issues like coin jams or stuck items. These machine status updates will be stored in a database, and a batch job will run at 1 AM to schedule the restocking and maintenance of machines. Are there any problems with the above design?
+How to solve these problems?
+ 
+3.) We are working on a mobile app for the board game Go. We'd like to add a feature where the computer will analyze a complete game. The analysis looks at each position from the game and provides suggested moves to help improve our users' play. We've found a library we can use to do this analysis. It takes an average of a minute on a modern desktop computer to analyze entire game. An average game consists of about 200 moves. We are considering two approaches. 1) running this analysis on the phone itself, and 2) sending the game to a server farm for analysis that will be returned to the user.
+ What are some advantages or disadvantages of each approach ?
+ 
+4.) We are running a simple photo storage and sharing service. People upload their photos to our servers and then give links to other users who can then view them. Instead of using a cloud service, we have our own server farms. You've been tasked with creating an estimate of the storage required over the coming year and the cost of that storage
+What information would you need and what factors would you consider as you generate this estimate?
+ 
+5.) We are running a simple photo storage and sharing service. People upload their photos to our servers and then give links to other users who can then view them. We're trying to figure out how to split the photos and associated data evenly onto multiple machines, especially as we get new users. We've decided to shard the photos evenly alphabetically by username. For example, if we had 26 servers, all the usernames starting with awould be on server 1, usernames starting with b' would be on server 2, and so on. We have created a scheme like this that will work for any number of servers. 4 5 Are there any problems with this design?
+How to solve these?
+ 
+ 
+Coding Question :- 
+ 
+1.) We have a catalog of song titles (and their lengths) that we play at a local radio station. We have been asked to play two of those songs in a row, and they must add up to exactly seven minutes long. Given a list of songs and their durations, write a function that returns the names of any two distinct songs that add up to exactly seven minutes. If there is no such pair, return an empty collection.
+ 
+2.) BFS :- Our local radio station is running a show where the songs are ordered in a very specific way. The last word of the title of one song must match the first word of the title of the next song - for example, "Silent Running" could be followed by "Running to Stand Still". No song may be played more than once. Given a list of songs and a starting song, find the longest chain of songs that begins with that song, and the last word of each song title matches the first word of the next one. 
+Write a function that returns the longest such chain.
+ If multiple equivalent chains exist, return any of them.
