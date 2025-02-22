@@ -1,0 +1,37 @@
+set a =10
+set c = 10
+begin
+a = 20
+get c
+begin
+b = 10
+a = 30
+commit/rollback
+
+
+InitialMap: {a: 10, c: 10}
+
+transactionalmap = {a: 30, b: 10}
+transactionMapStack = []
+begin -> [{a: 20}, {a:30, b: 10}]
+
+commit:
+    while transactionMapStack:
+        transactionMap = transactionMapStack.popleft()
+        for key, value in transactionMap:
+            InitialMap[key] = value
+
+InitialMap: {a: 30, b:10, c: 10}
+
+
+
+rollback -> [{a: 20}]
+
+
+get inside transaction -> O(n) where n is number of ongoing transactions -> O(1)
+commit -> O(n) where n is number of ongoing transactions
+
+
+performance vs memory
+
+if we copy the data, we have all key-value pairs of initial and previous transactions in recent transaction hashmap
