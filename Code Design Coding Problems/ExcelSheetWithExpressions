@@ -1,0 +1,82 @@
+class Cell:
+    def __init__(self, row, col):
+        self.val = 0
+        self.row = row
+        self.col = col
+        self.expression = ""
+        self.dependentCells = set()
+    
+    def __repr__(self):
+        return "{}, ({})".format(self.val, self.expression)
+
+class Excel:
+    def __init__(self, H: int, W: str):
+        self.rows = H
+        self.columns = ord(W) - ord('A') + 1
+        self.sheet = [[Cell(r,c) for c in range(self.columns)] for r in range(self.rows)]
+    
+    def getCell(self, row, column):
+        return self.sheet[row - 1][ord(column) - ord('A')]
+
+    def evaluateExpression(self, cell):
+        total = 0
+        expression = cell.expression.split('+')
+        # print(expression)
+        for value in expression:
+            value = value.strip()
+            if value.isdigit():
+                total += int(value)
+            elif len(value) == 2:
+                row, col = int(value[1]), value[0]
+                # print(row, col)
+                
+                dependentCell = self.getCell(row, col)
+                total += dependentCell.val
+                # add dependency
+                # print(row, col)
+                dependentCell.dependentCells.add((cell.row+1, chr(cell.col + ord('A'))))
+        cell.val = total
+
+    def set(self, row, column, value):
+        cell = self.getCell(row, column)
+        if isinstance(value, int):
+            cell.val = value
+        else:
+            cell.expression = value
+            self.evaluateExpression(cell)
+        
+        if cell.dependentCells:
+            # print(row, column, cell.dependentCells)
+            for (r, c) in cell.dependentCells:
+                dCell = self.getCell(r, c)
+                self.evaluateExpression(dCell)
+    
+    def get(self, row, column):
+        return self.sheet[row-1][ord(column) - ord('A')].val
+
+    def print(self):
+        cellWidth = 5
+        border = "+".join("-" * cellWidth for _ in range(self.columns))
+        print("+" + border + "+")  # Top border
+        for row in self.sheet:
+            print("|" + "|".join(f"{cell.val:^{cellWidth}} ({cell.expression:^{cellWidth}})" for cell in row) + "|")
+            # print('|' + '|'.join(str(cell.val) for cell in row) + '|')
+    
+        print("+" + border + "+")  # Bottom border
+
+
+excel = Excel(5, 'E')
+excel.set(1, 'A', 2)
+excel.print()
+excel.set(2, 'A', '1+2')
+excel.print()
+excel.set(2, 'B', '2')
+excel.print()
+excel.set(2, 'E', 'A2+B2')
+excel.print()
+excel.set(2, 'C', 'D1+E2')
+excel.print()
+excel.set(4, 'A', '1 + A1')
+excel.print()
+excel.set(2, 'B', '3')
+excel.print()
